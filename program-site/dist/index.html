@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Программа выступления</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 16px 20px;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: 22px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background: #2563eb;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .button.secondary {
+            background: #4b5563;
+        }
+
+        .pdf-container {
+            flex: 1;
+            width: 100%;
+            padding: 12px;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            height: calc(100vh - 120px);
+            min-height: 600px;
+            border: none;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .fallback {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 18px;
+            }
+
+            .pdf-container {
+                padding: 0;
+            }
+
+            iframe {
+                height: calc(100vh - 110px);
+                min-height: 500px;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Программа выступления</h1>
+
+    <div class="buttons">
+        <a
+                class="button"
+                href="public/program.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+        >
+            Открыть PDF
+        </a>
+
+        <a
+                class="button secondary"
+                href="public/program.pdf"
+                download
+        >
+            Скачать программу
+        </a>
+    </div>
+</header>
+
+<main class="pdf-container">
+    <iframe
+            src="public/program.pdf#view=FitH"
+            title="Программа выступления"
+    >
+        <div class="fallback">
+            Ваш браузер не поддерживает просмотр PDF.
+            <a href="public/program.pdf">Откройте документ по ссылке</a>.
+        </div>
+    </iframe>
+</main>
+</body>
+</html>
